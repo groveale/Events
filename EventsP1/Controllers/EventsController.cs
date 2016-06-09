@@ -20,6 +20,17 @@ namespace EventsP1.Controllers
             return View(db.Events.ToList());
         }
 
+        // GET: Calendar View
+        public ActionResult CalendarView()
+        {
+            return View();
+        }
+
+        public ActionResult FullCalendarView()
+        {
+            return View();
+        }
+
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
