@@ -1,0 +1,74 @@
+﻿@model EventsP1.Models.CalendarEvent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CalendarEvent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFinish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFinish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Allday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Allday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpenInvite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpenInvite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Attendees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Attendees)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CalendarEventID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

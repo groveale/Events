@@ -1,0 +1,186 @@
+﻿@model IEnumerable<EventsP1.Models.CalendarEvent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts{
+
+    <!--
+    <link rel='stylesheet' href='~/Content/FullCalendar/fullcalendar.css' />
+    <script src='~/Scripts/jquery.min.js'></script>
+    <script src='~/Scripts/moment.min.js'></script>
+    <script src='~/Scripts/fullcalendar.js'></script>
+    -->
+
+    <script>
+    $(document).ready(function () {
+
+
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            defaultView: 'agendaDay',
+            editable: true,
+            allDaySlot: false,
+            selectable: true,
+            slotMinutes: 15,
+            events: '/CalendarEvents/GetCalendarEvents/',
+               /* [
+                {
+                    title: 'event1',
+                    start: '2016-06-23'
+                },
+                {
+                    title: 'event2',
+                    start: '2016-06-25',
+                    end: '2016-06-27'
+                },
+                {
+                    title: 'event3',
+                    start: '2016-06-20T12:30:00',
+                    allDay: false // will make the time show
+                },
+                {
+                    title: 'event3',
+                    start: '2016-06-20T09:30:00',
+                    allDay: false // will make the time show
+                }
+                ]
+                */
+            eventClick: function (calEvent, jsEvent, view) {
+                alert('You clicked on event id: ' + calEvent.id
+                    + "\nStart Time is: " + calEvent.start
+                    + "\nAnd the title is: " + calEvent.title);
+                if (confirm("Confirm edit?")) {
+                    location.href = "/CalendarEvents/Edit";
+                       
+                }
+                else {
+                    //nothing
+                }
+            },
+            eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc) {
+                if (confirm("Confirm move?")) {
+                    UpdateEvent(event.id, event.start, event.end
+                        );
+                }
+                else {
+                    //revertFunc();
+                }
+            },
+            eventResize: function (event, dayDelta, minuteDelta, revertFunc) {
+                if (confirm("Confirm change appointment length?")) {
+                    UpdateEvent(event.id, event.start, event.end);
+                }
+                else {
+                    //revertFunc();
+                }
+            },
+            dayClick: function (dayDelta, minuteDelta) {
+                if (confirm("Confirm NEW APPOINTMENT?")) {
+                    //Use staart and end date to create event
+
+                    location.href = "/CalendarEvents/Create";
+                }
+                else {
+                    
+                }
+            }
+        });
+
+       
+
+        function UpdateEvent(EventID, EventStart, EventEnd) {
+            var dataRow = {
+                'ID': EventID,
+                'NewEventStart': EventStart,
+                'NewEventEnd': EventEnd
+            }
+            $.ajax({
+                type: 'POST',
+                url: "/CalendarEvents/UpdateEvent",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(dataRow)
+            });
+        }
+        
+
+    })
+    </script>
+
+
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFinish)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Allday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpenInvite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attendees)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFinish)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Allday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenInvite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attendees)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CalendarEventID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CalendarEventID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CalendarEventID })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<div id='calendar' style="width:100%"></div>

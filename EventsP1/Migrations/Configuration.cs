@@ -17,31 +17,42 @@ namespace EventsP1.Migrations
         {
             //  This method will be called after migrating to the latest version.
 
+            
+
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-                context.Events.AddOrUpdate(
-                  p => p.Name,
-                  new Event
-                  {
-                      Name = "Glasto",
-                      Location = "WestBy",
-                      Date = "25 June",
-                      Allday = true,
+            context.CalendarEvents.AddOrUpdate(
+              p => p.Name,
+              new CalendarEvent
+              {
+                  Name = "Glasto",
+                  Location = "WestBy",
+                  DateStart = new DateTime(2016, 6, 25, 11, 0, 0),
+                  DateFinish = new DateTime(2016, 6, 25, 23, 0, 0),
+                  Allday = false,
+                  OpenInvite = true,
+                  Attendees = "groveale, nickolarse",
                   },
-                  new Event
+                  new CalendarEvent
                   {
                       Name = "Double Date",
                       Location = "WestBy",
-                      Date = "24 June",
+                      DateStart = new DateTime(2016, 6, 24, 11, 0, 0),
+                      DateFinish = new DateTime(2016, 6, 24, 23, 0, 0),
                       Allday = false,
+                      OpenInvite = false,
+                      Attendees = "groveale, slim",
                   },
-                  new Event
+                  new CalendarEvent
                   {
                       Name = "Petes Coming Out Party",
                       Location = "WestBy",
-                      Date = "26 June",
+                      DateStart = new DateTime(2016, 6, 26, 11, 0, 0),
+                      DateFinish = new DateTime(2016, 6, 26, 23, 0, 0),
                       Allday = true,
+                      OpenInvite = true,
+                      Attendees = "groveale, boysons",
                   }
                 );
             
