@@ -182,9 +182,11 @@
       <DependentUpon>201606101152367_initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Attendee.cs" />
     <Compile Include="Models\CalendarEvent.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventsP1Context.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
