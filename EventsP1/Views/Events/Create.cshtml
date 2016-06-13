@@ -18,7 +18,7 @@
 
     <script type="text/javascript">
     $(function() {
-        $('input[name="daterange"]').daterangepicker({
+        $('input[type="daterange"]').daterangepicker({
             singleDatePicker: true,
             showDropdowns: true,
             timePicker: true,
@@ -35,8 +35,8 @@
 <h2>Create</h2>
 
 <!--
-<input type="text" class="form-control" name="daterange" value="01/01/2015 1:30 PM" />
-    -->
+<input type="daterange" class="form-control" name="startdate" value="01/01/2015 1:30 PM" />
+-->   
 
 @using (Html.BeginForm()) 
 {
@@ -65,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateStart, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateStart, new { htmlAttributes = new { @class = "form-control", @type = "text", @name = "daterange", @value = "01/01/2015 1:30 PM" } })
+                @Html.EditorFor(model => model.DateStart, new { htmlAttributes = new {  @class = "form-control", @type = "daterange" } })
                 @Html.ValidationMessageFor(model => model.DateStart, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -73,7 +73,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateFinish, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateFinish, new { htmlAttributes = new { @class = "form-control", @type = "text", @name = "daterange" } })
+                @Html.EditorFor(model => model.DateFinish, new { htmlAttributes = new { @class = "form-control", @type = "daterange" } })
                 @Html.ValidationMessageFor(model => model.DateFinish, "", new { @class = "text-danger" })
             </div>
         </div>
