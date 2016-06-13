@@ -20,17 +20,6 @@ namespace EventsP1.Controllers
             return View(db.Events.ToList());
         }
 
-        // GET: Calendar View
-        public ActionResult CalendarView()
-        {
-            return View();
-        }
-
-        public ActionResult FullCalendarView()
-        {
-            return View();
-        }
-
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
@@ -57,7 +46,7 @@ namespace EventsP1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,Name,Location,Date,Allday,Self")] Event @event)
+        public ActionResult Create([Bind(Include = "EventID,Name,Location,DateStart,DateFinish,Allday,Self")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +78,7 @@ namespace EventsP1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,Name,Location,Date,Allday,Self")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,Name,Location,DateStart,DateFinish,Allday,Self")] Event @event)
         {
             if (ModelState.IsValid)
             {

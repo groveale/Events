@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201606101152367_initial1.Designer.cs">
       <DependentUpon>201606101152367_initial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606131928214_newdata.cs" />
+    <Compile Include="Migrations\201606131928214_newdata.Designer.cs">
+      <DependentUpon>201606131928214_newdata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attendee.cs" />
     <Compile Include="Models\CalendarEvent.cs" />
@@ -240,18 +244,17 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HelloWorld\Index.cshtml" />
     <Content Include="Views\HelloWorld\Welcome.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
-    <Content Include="Views\Events\Delete.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\Edit.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
-    <Content Include="Views\Events\CalendarView.cshtml" />
-    <Content Include="Views\Events\FullCalendarView.cshtml" />
+    <Content Include="Views\CalendarEvents\FullCalendarView.cshtml" />
     <Content Include="Views\CalendarEvents\Create.cshtml" />
     <Content Include="Views\CalendarEvents\Delete.cshtml" />
     <Content Include="Views\CalendarEvents\Details.cshtml" />
     <Content Include="Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Views\CalendarEvents\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -270,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606101152367_initial1.resx">
       <DependentUpon>201606101152367_initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606131928214_newdata.resx">
+      <DependentUpon>201606131928214_newdata.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

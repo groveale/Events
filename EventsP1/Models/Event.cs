@@ -13,7 +13,9 @@ namespace EventsP1.Models
         public int EventID{ get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateStart { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateFinish { get; set; }
         public bool Allday { get; set; }
         // Must be able to be populated by adding a Group of Attendess

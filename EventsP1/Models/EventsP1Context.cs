@@ -23,5 +23,9 @@ namespace EventsP1.Models
         public System.Data.Entity.DbSet<EventsP1.Models.Event> Events { get; set; }
 
         public System.Data.Entity.DbSet<EventsP1.Models.CalendarEvent> CalendarEvents { get; set; }
+
+        public System.Data.Entity.DbSet<EventsP1.Models.Attendee> Attendees { get; set; }
+
+        public System.Data.Entity.DbSet<EventsP1.Models.Group> Groups { get; set; }
     }
 }

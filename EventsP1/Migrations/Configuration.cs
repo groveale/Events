@@ -22,40 +22,70 @@ namespace EventsP1.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            context.CalendarEvents.AddOrUpdate(
+            context.Events.AddOrUpdate(
               p => p.Name,
-              new CalendarEvent
+              new Event
               {
                   Name = "Glasto",
                   Location = "WestBy",
                   DateStart = new DateTime(2016, 6, 25, 11, 0, 0),
                   DateFinish = new DateTime(2016, 6, 25, 23, 0, 0),
                   Allday = false,
-                  OpenInvite = true,
-                  Attendees = "groveale, nickolarse",
+                  //invitedAttendees = "groveale, nickolarse",
                   },
-                  new CalendarEvent
-                  {
-                      Name = "Double Date",
-                      Location = "WestBy",
-                      DateStart = new DateTime(2016, 6, 24, 11, 0, 0),
-                      DateFinish = new DateTime(2016, 6, 24, 23, 0, 0),
-                      Allday = false,
-                      OpenInvite = false,
-                      Attendees = "groveale, slim",
-                  },
-                  new CalendarEvent
-                  {
-                      Name = "Petes Coming Out Party",
-                      Location = "WestBy",
-                      DateStart = new DateTime(2016, 6, 26, 11, 0, 0),
-                      DateFinish = new DateTime(2016, 6, 26, 23, 0, 0),
-                      Allday = true,
-                      OpenInvite = true,
-                      Attendees = "groveale, boysons",
-                  }
+            new Event
+            {
+                Name = "Double Date",
+                Location = "WestBy",
+                DateStart = new DateTime(2016, 6, 24, 11, 0, 0),
+                DateFinish = new DateTime(2016, 6, 24, 23, 0, 0),
+                Allday = false,
+                //invitedAttendees = "groveale, slim",
+            },
+            new Event
+            {
+                Name = "Petes Coming Out Party",
+                Location = "WestBy",
+                DateStart = new DateTime(2016, 6, 26, 11, 0, 0),
+                DateFinish = new DateTime(2016, 6, 26, 23, 0, 0),
+                Allday = true,
+                //invitedAttendees = { 1, 4 }
+            }
                 );
-            
+
+            context.Attendees.AddOrUpdate(
+             p => p.AtendeeID,
+             new Attendee
+             {
+                 AtendeeID = 1,
+                 Name = "Slim",
+                 Driver = true,
+                 //Groups
+              },
+           new Attendee
+           {
+               AtendeeID = 2,
+               Name = "Grosser",
+               Driver = false,
+               //Groups = 
+               
+            },
+           new Attendee
+           {
+               AtendeeID = 3,
+               Name = "Nicolarse",
+               Driver = true,
+               //Groups = 
+           },
+           new Attendee
+           {
+               AtendeeID = 4,
+               Name = "Pete",
+               Driver = false,
+               //Groups = 
+           }
+               );
+
         }
     }
 }

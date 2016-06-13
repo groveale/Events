@@ -4,7 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Events</h2>
+
+
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,7 +19,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Location)
         </th>
-        <th>
+        <th >
             @Html.DisplayNameFor(model => model.DateStart)
         </th>
         <th>
@@ -27,7 +29,7 @@
             @Html.DisplayNameFor(model => model.Allday)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.invitedAttendees)
+            @Html.DisplayNameFor(model => model.Self)
         </th>
         <th></th>
     </tr>
@@ -41,7 +43,10 @@
             @Html.DisplayFor(modelItem => item.Location)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @Html.DisplayFor(modelItem => item.DateStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFinish)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Allday)
