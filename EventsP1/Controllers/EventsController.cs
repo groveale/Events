@@ -38,7 +38,11 @@ namespace EventsP1.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            return View();
+            Event newEvent = new Event();
+
+            newEvent.AttendeeList = new SelectList(newEvent.getAttendess(), "AtendeeID", "Name");
+
+            return View(newEvent);
         }
 
         // POST: Events/Create

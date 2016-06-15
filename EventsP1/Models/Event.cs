@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Globalization;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace EventsP1.Models
 {
@@ -29,6 +31,8 @@ namespace EventsP1.Models
             }
             set { }
         }
+        [NotMapped]
+        public SelectList AttendeeList { get; set; }
 
 
         // Function to invite attendess to event
@@ -53,6 +57,17 @@ namespace EventsP1.Models
                 inviteAttendees(membersOfGroup);
             }
 
+        }
+
+        public IEnumerable<Attendee> getAttendess()
+        {
+            IEnumerable<Attendee> friendsList;
+
+            EventsP1Context db = new EventsP1Context();
+
+            friendsList = db.Attendees.ToList();
+
+            return friendsList;
         }
 
     }
